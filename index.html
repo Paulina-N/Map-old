@@ -48,6 +48,11 @@
                         </ul>
                     </li>
                 </ul>
+                <ul id="items">
+                    <li>item 1</li>
+                    <li>item 2</li>
+                    <li>item 3</li>
+                </ul>
                 <!--<ul class="list-unstyled CTAs">
                     <li><a href="#" class="download">Link</a></li>
                     <li><a href="#" class="article">Another link</a></li>
@@ -80,6 +85,13 @@
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>
+                        <!--<ul id="simpleList" class="list-group">
+                            <li class="list-group-item">Item 1</a></li>
+                            <li class="list-group-item">Item 2</li>
+                            <li class="list-group-item">Item 3</li>
+                            <li class="list-group-item">Item 4</li>
+                            <li class="list-group-item">Item 5</li>
+                        </ul>-->
                     </div>
                 </nav>
                 <div id="map"></div>
@@ -87,8 +99,7 @@
         </div>
     </body>
 </html>
-<script src="bower_components\jquery\dist\jquery.js"></script>
-<script src="bower_components\leaflet\dist\leaflet-src.js"></script>
+
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <!-- Bootstrap Js CDN -->
@@ -106,8 +117,11 @@ crossorigin=""></script>
 integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ"
 crossorigin="anonymous"></script>
 <!-- Custom Js -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<!--<script>
+    Sortable.create(simpleList, { /* options */ });
+</script>-->
 <script type="text/javascript" src="L.TileLayer.BetterWMS.js"></script>
-<script src="leaflet.control.orderlayers.min.js"></script>
 <script type="text/javascript" src="layersData.js"></script>
 <script type="text/javascript" src="map.js"></script>
 <script type="text/javascript" src="legends.js"></script>

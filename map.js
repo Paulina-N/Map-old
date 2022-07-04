@@ -26,25 +26,18 @@ var overlayMaps = {
     "Corine Land Cover": Corine_Land_Cover,
 };
 
-/*var layerControl = L.control.layers(baseMaps, overlayMaps,{
+var layerControl = L.control.layers(baseMaps, overlayMaps,{
   collapsed: false,
-}).addTo(map);*/
+}).addTo(map);
 
-/*var htmlObject = layerControl.getContainer();
+var htmlObject = layerControl.getContainer();
   var a = document.getElementById('layers')
+  var sortable = Sortable.create(a);
   function setParent(el, newParent){
     newParent.appendChild(el);
   }
   setParent(htmlObject, a);
-*/
-var controls = L.control.orderlayers(
-  baseMaps, overlayMaps, 
-  {
-    collapsed: false,
-    title: 'Order Layers'
-  }
-);
-controls.addTo(map);
 
-
-/* http://elesdoar.github.io/leaflet-control-orderlayers/ */
+  
+var el = document.getElementById('items');
+var sortable = Sortable.create(el);
