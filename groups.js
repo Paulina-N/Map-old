@@ -146,7 +146,9 @@ for (let i = 0; i < groupval.length; i++) {
                         map.getPane(key).style.zIndex = map.getPane(key).style.zIndex + (evt.oldIndex - evt.newIndex);
                         for (j = evt.oldIndex - evt.newIndex; j > 0; j--) {
                             for (const [key2, value2] of Object.entries(a)) {
-                                if (j + oldZin == map.getPane(key2).style.zIndex && old != key2) {
+                                //var b = j + parseInt(oldZin);
+                                //document.write(b + " " + map.getPane(key2).style.zIndex + " " + key2 + " " + old);
+                                if ((j + parseInt(oldZin) == map.getPane(key2).style.zIndex) && (key2 != old)) {
                                     map.getPane(key2).style.zIndex--;
                                     old = key2;
                                 }
