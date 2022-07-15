@@ -46,8 +46,8 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
           feature_count: '10',
         };
     
-    params[params.version === '1.3.0' ? 'i' : 'x'] = point.x;
-    params[params.version === '1.3.0' ? 'j' : 'y'] = point.y;
+    params[params.version === '1.3.0' ? 'i' : 'x'] = Math.round(point.x);
+    params[params.version === '1.3.0' ? 'j' : 'y'] = Math.round(point.y);
     
     return this._url + L.Util.getParamString(params, this._url, true);
   },
@@ -55,7 +55,7 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   showGetFeatureInfo: function (err, latlng, content) {
     if (err) { console.log(err); return; }
     if (content.length != 658) {
-      L.popup({ maxWidth: 800})
+      L.popup({ maxWidth: 1500})
       .setLatLng(latlng)
       .setContent(content)
       .openOn(this._map);
