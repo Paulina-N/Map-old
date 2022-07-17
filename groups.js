@@ -1,3 +1,49 @@
+layerString = [
+    "Anchoring",
+    "Bathymetry",
+    "DEM",
+    "Declaracion_Riesgo_Cuantitativo",
+    "Declaracion_Riesgo_Quimico",
+    "Declaration_of_Urgent_Measures",
+    "Declaration_of_at_risk",
+    "Environmental_zoning_for_renewable_energy",
+    "Fartet_recovery_plan",
+    "Fishing_company_zones",
+    "Flora_recovery_plan",
+    "Flow_accumulation",
+    "Flow_direction",
+    "Irrigated_crops",
+    "Macrophytes",
+    "Mar_Menor_catchment_area",
+    "Marine_habitats_2018",
+    "Marine_habitats",
+    "Municipalities",
+    "National_census_dischrages",
+    "Natura_2000_Network_LIC_ZEC",
+    "Natura_2000_Network_ZEPA",
+    "Natural_protected_areas",
+    "RAMSAR",
+    "Regions",
+    "Relief",
+    "SIAM_weather_stations",
+    "SIOSE_Land_cover",
+    "SIOSE_Land_uses",
+    "Sailing_speed",
+    "Selected_areas_for_the_implementation_of_thermo_solar_plants",
+    "Soil_regional_layer",
+    "Surface_water_quality",
+    "Temporary_exclusion_area",
+    "Terrestrial_habitats",
+    "ZEPIM",
+    "Zone_0",
+    "Zone_A1",
+    "Zone_A2",
+    "Zone_B",
+    "Zones",
+    "CHL",
+    "Corine_Land_Cover"
+  ]
+
 var group1 = {
     Anchoring: "Anchoring",
     Bathymetry: "Bathymetry",
@@ -103,27 +149,16 @@ var map = L.map('map', {
     layers: [Satellite]
 });
 
-map.createPane('Anchoring');
-map.getPane('Anchoring').style.zIndex = 300;
-map.createPane('Bathymetry');
-map.getPane('Bathymetry').style.zIndex = 299;
-map.createPane('DEM');
-map.getPane('DEM').style.zIndex = 298;
-map.createPane('Declaracion_Riesgo_Cuantitativo');
-map.getPane('Declaracion_Riesgo_Cuantitativo').style.zIndex = 297;
-map.createPane('Declaracion_Riesgo_Quimico');
-map.getPane('Declaracion_Riesgo_Quimico').style.zIndex = 296;
-
+var j = 300;
+for (let i = 0; i < layerString.length; i++) {
+    map.createPane(layerString[i]);
+    map.getPane(layerString[i]).style.zIndex = j;
+    j--;
+}
 
 /*map.eachLayer(function(layer){
     document.write((layer.getSource().getParams().LAYERS));
 });*/
-
-lay = [
-    "Anchoring",
-    "Bathymetry",
-    "DEM"
-]
 
 for (let i = 0; i < groupval.length; i++) {
     var wrapper = document.getElementById(groupid[i]);
