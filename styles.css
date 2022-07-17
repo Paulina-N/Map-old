@@ -6,7 +6,8 @@ html
 #map {
     position: fixed;
     width: 97vw;
-    height: 780px;
+    /*height: 780px;*/
+    height: 80%;
     z-index: 1;
 }
 
