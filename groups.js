@@ -203,3 +203,40 @@ for (let i = 0; i < groupval.length; i++) {
         }
     });
 }
+
+/*
+var parents = new Array;
+for (let i = 0; i < groupval.length; i++) {
+    let wrapper = document.getElementById(groupid[i]);
+    let HTML1 = '';
+    parents[i] = wrapper.id;
+
+    for (const [key, value] of Object.entries(groupval[i])) {
+        HTML1 += '<li><label><input type="checkbox" name=' + parents[i] + ' id=' + key + '>' + value + '</label></li>';
+        
+    }
+    wrapper.innerHTML = HTML1;
+}
+
+for (let i = 0; i < groupval.length; i++) {
+    let wrapper = document.getElementById(groupid[i]);
+
+    var sortable = Sortable.create(wrapper, {animation: 150,
+        onEnd: function (evt) {
+            var from = evt.item;
+            let groupName = Object.keys(window[from.children[0].children[0].name])
+            for (const key of groupName) {
+                document.write(key + " " + map.getPane(key).style.zIndex + " " + groupName.length + ". ");
+            }
+        } 
+    })
+    
+    var groupSort = document.getElementById("pageSubmenu");
+    Sortable.create(groupSort, {
+        animation: 150,
+        onEnd: function (event) {
+            event.newIndex;
+        }
+    })
+}
+*/
