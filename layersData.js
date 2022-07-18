@@ -4,15 +4,17 @@ var Esri_WorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/r
 var Satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {});
 
 var smartlagoonLink = 'https://carto.vielca.com/geoserver/Smartlagoon/wms?';
+var marManorLink = 'https://carto.vielca.com/geoserver/mar_menor/wms?';
+var link = smartlagoonLink;
 
-var allLayers = new Array(
+var allLayersString = new Array(
     "Anchoring",
     "Bathymetry",
     "DEM",
     "Declaracion_Riesgo_Cuantitativo",
     "Declaracion_Riesgo_Quimico",
     "Declaration_of_Urgent_Measures",
-    "Declaration_of_at_risk",
+    "Declaration_of_at_risk_of_not_achieving_good_quantitative_or_chemical_status",
     "Environmental_zoning_for_renewable_energy",
     "Fartet_recovery_plan",
     "Fishing_company_zones",
@@ -51,11 +53,18 @@ var allLayers = new Array(
     "Corine_Land_Cover"
 );
 
-for(var i = 0; i < allLayers.length; i++) {
-    window[allLayers[i]] = L.tileLayer.betterWms(smartlagoonLink, {
+var allLayers = new Array();
+for(let r = 0; r < allLayersString.length; r++) {
+    allLayers[r] = allLayersString[r].replace(/_/g, " ");
+}
+
+for(var i = 0; i < allLayersString.length; i++) {
+    if (allLayersString[i] == "CHL" || allLayersString[i] == "Corine_Land_Cover") link = marManorLink;
+    else link = smartlagoonLink;
+    window[allLayersString[i]] = L.tileLayer.betterWms(link, {
         layers: allLayers[i],
         format: 'image/png',
         transparent: true,
-        pane: allLayers[i],
+        pane: allLayersString[i],
     });
 }
