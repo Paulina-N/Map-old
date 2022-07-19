@@ -1,100 +1,95 @@
-var group1 = {
-    Anchoring: "Anchoring",
-    Bathymetry: "Bathymetry",
-    DEM: "DEM",
-    Declaracion_Riesgo_Cuantitativo: "Declaracion Riesgo Cuantitativo",
-    Declaracion_Riesgo_Quimico: "Declaracion Riesgo Quimico",
+var climate = {
+    "SIAM_weather_stations": "SIAM weather stations"
 };
 
-var group2 = {
-    Declaration_of_Urgent_Measures: "Declaration of Urgent Measures",
-    Declaration_of_at_risk: "Declaration of at risk of not achieving good quantitative or chemical status",
-    Environmental_zoning_for_renewable_energy: "Environmental zoning for renewable energy",
-    Fartet_recovery_plan: "Fartet recovery plan",
-    Fishing_company_zones: "Fishing company zones",
+var environmental_protection = {
+    "Environmental_zoning_for_renewable_energy": "Environmental zoning for renewable energy",
+    "Flora_recovery_plan": "Flora recovery plan",
+    "Macrophytes": "Macrophytes",
+    "Marine_habitats": "Marine habitats",
+    "Natura_2000_Network_LIC_ZEC": "Natura 2000 Network LIC ZEC",
+    "Natura_2000_Network_ZEPA": "Natura 2000 Network ZEPA",
+    "Natural_protected_areas": "Natural protected areas",
+    "RAMSAR":"RAMSAR",
+    "Temporary_exclusion_area": "Temporary exclusion area",
+    "Terrestrial_habitats": "Terrestrial habitats",
+    "ZEPIM": "ZEPIM",
+    "Zone_0": "Zone 0",
+    "Zone_A1": "Zone A1",
+    "Zone_A2": "Zone A2",
+    "Zone_B": "Zone B",
+    "Zones": "Zones"
 };
 
-var group3 = {
-    Flora_recovery_plan: "Flora recovery plan",
-    Flow_accumulation: "Flow accumulation",
-    Flow_direction: "Flow direction",
-    Irrigated_crops: "Irrigated crops",
-    Macrophytes: "Macrophytes",
+var fishing = {
+    "Anchoring": "Anchoring",
+    "Fartet_recovery_plan": "Fartet recovery plan",
+    "Fishing_company_zones": "Fishing company zones",
+    "Sailing_speed": "Sailing speed"
 };
 
-var group4 = {
-    Mar_Menor_catchment_area: "Mar Menor catchment area",
-    Marine_habitats_2018: "Marine habitats 2018",
-    Marine_habitats: "Marine habitats",
-    Municipalities: "Municipalities",
-    National_census_dischrages: "National census dischrages",
+var hydrology = {
+    "Flow_accumulation": "Flow accumulation",
+    "Flow_direction": "Flow direction",
+    "Mar_Menor_catchment_area": "Mar Menor catchment area"
 };
 
-var group5 = {
-    Natura_2000_Network_LIC_ZEC: "Natura 2000 Network LIC ZEC",
-    Natura_2000_Network_ZEPA: "Natura 2000 Network ZEPA",
-    Natural_protected_areas: "Natural protected areas",
-    RAMSAR:"RAMSAR",
-    Regions: "Regions",
+var land_uses = {
+    "Irrigated_crops": "Irrigated crops",
+    "SIOSE_Land_cover": "SIOSE Land cover",
+    "SIOSE_Land_uses": "SIOSE Land uses",
+    "Selected_areas_for_the_implementation_of_thermo_solar_plants": "Selected areas for the implementation of thermo solar plants",
+    "Corine_Land_Cover": "Corine Land Cover"
 };
 
-var group6 = {
-    Relief: "Relief",
-    SIAM_weather_stations: "SIAM weather stations",
-    SIOSE_Land_cover: "SIOSE Land cover",
-    SIOSE_Land_uses: "SIOSE Land uses",
-    Sailing_speed: "Sailing speed",
+var recovery_measures = {
+    "Declaration_of_Urgent_Measures": "Declaration of Urgent Measures"
 };
 
-var group7 = {
-    Selected_areas_for_the_implementation_of_thermo_solar_plants: "Selected areas for the implementation of thermo solar plants",
-    Soil_regional_layer: "Soil regional layer",
-    Surface_water_quality: "Surface water quality",
-    Temporary_exclusion_area: "Temporary exclusion area",
-    Terrestrial_habitats: "Terrestrial habitats",
+var reference_cartography = {
+    "Municipalities": "Municipalities",
+    "Regions": "Regions"
 };
 
-var group8 = {
-    ZEPIM: "ZEPIM",
-    Zone_0: "Zone 0",
-    Zone_A1: "Zone A1",
-    Zone_A2: "Zone A2",
-    Zone_B: "Zone B",
-    Zones: "Zones",
-    //"DEM AMSS": DEM_AMSS, //BLANK MAP ???
-    CHL: "CHL",
-    Corine_Land_Cover: "Corine Land Cover",
+var terrain = {
+    "Bathymetry": "Bathymetry",
+    "DEM": "DEM",
+    "Relief": "Relief",
+    "Soil_regional_layer": "Soil regional layer",
+};
+
+var water_quality = {
+    "Declaracion_Riesgo_Cuantitativo": "Declaracion Riesgo Cuantitativo",
+    "Declaracion_Riesgo_Quimico": "Declaracion Riesgo Quimico",
+    "Declaration_of_at_risk_of_not_achieving_good_quantitative_or_chemical_status": "Declaration of at risk of not achieving good quantitative or chemical status",
+    "National_census_dischrages": "National census dischrages",
+    "Surface_water_quality": "Surface water quality",
+    "CHL": "CHL",
 };
 
 var groupid = [
-    "group1",
-    "group2",
-    "group3",
-    "group4",
-    "group5",
-    "group6",
-    "group7",
-    "group8",
+    "climate",
+    "environmental_protection",
+    "fishing",
+    "hydrology",
+    "land_uses",
+    "recovery_measures",
+    "reference_cartography",
+    "terrain",
+    "water_quality"
 ]
 
 var groupval = [
-    group1,
-    group2,
-    group3,
-    group4,
-    group5,
-    group6,
-    group7,
-    group8,
+    climate,
+    environmental_protection,
+    fishing,
+    hydrology,
+    land_uses,
+    recovery_measures,
+    reference_cartography,
+    terrain,
+    water_quality
 ]
-
-var a = {
-    "Anchoring": 0,
-    "Bathymetry": 1,
-    "DEM": 2,
-    "Declaracion_Riesgo_Cuantitativo": 3,
-    "Declaracion_Riesgo_Quimico": 4,
-};
 
 var map = L.map('map', {
     center: [37.75, -1],
@@ -103,68 +98,83 @@ var map = L.map('map', {
     layers: [Satellite]
 });
 
-map.createPane('Anchoring');
-map.getPane('Anchoring').style.zIndex = 300;
-map.createPane('Bathymetry');
-map.getPane('Bathymetry').style.zIndex = 299;
-map.createPane('DEM');
-map.getPane('DEM').style.zIndex = 298;
-map.createPane('Declaracion_Riesgo_Cuantitativo');
-map.getPane('Declaracion_Riesgo_Cuantitativo').style.zIndex = 297;
-map.createPane('Declaracion_Riesgo_Quimico');
-map.getPane('Declaracion_Riesgo_Quimico').style.zIndex = 296;
+var j = 300;
+for (let i = 0; i < allLayersString.length; i++) {
+    map.createPane(allLayersString[i]);
+    map.getPane(allLayersString[i]).style.zIndex = j;
+    j--;
+}
 
+function bubbleSort(arr){
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr.length - i - 1; j++){
+            if(arr[j + 1] > arr[j]){
+                [arr[j + 1],arr[j]] = [arr[j],arr[j + 1]]
+            }
+        }
+    };
+    return arr;
+};
 
-/*map.eachLayer(function(layer){
-    document.write((layer.getSource().getParams().LAYERS));
-});*/
-
-lay = [
-    "Anchoring",
-    "Bathymetry",
-    "DEM"
-]
-
+var parents = new Array;
 for (let i = 0; i < groupval.length; i++) {
-    var wrapper = document.getElementById(groupid[i]);
-    var HTML1 = '';
-
+    let wrapper = document.getElementById(groupid[i]);
+    let HTML1 = '';
+    parents[i] = wrapper.id;
     for (const [key, value] of Object.entries(groupval[i])) {
-        HTML1 += '<li><label><input type="checkbox" name=' + key + ' id=' + key + '>' + value + '</label></li>';
+        HTML1 += '<li><label><input type="checkbox" name=' + parents[i] + ' id=' + key + '>' + value + '</label></li>';
+        
     }
+    wrapper.innerHTML = HTML1;
+}
+for (let i = 0; i < groupval.length; i++) {
+    let wrapper = document.getElementById(groupid[i]);
     var sortable = Sortable.create(wrapper, {animation: 150,
         onEnd: function (evt) {
-            evt.newIndex;
-            for (const [key, value] of Object.entries(a)) {
-                if (evt.oldIndex == value) {
-                    if (evt.newIndex > evt.oldIndex) {
-                        map.getPane(key).style.zIndex = map.getPane(key).style.zIndex - (evt.newIndex - evt.oldIndex);
-                    }
-                    if (evt.newIndex < evt.oldIndex) {
-                        var old = key;
-                        var oldZin = map.getPane(key).style.zIndex;
-                        map.getPane(key).style.zIndex = map.getPane(key).style.zIndex + (evt.oldIndex - evt.newIndex);
-                        for (j = evt.oldIndex - evt.newIndex; j > 0; j--) {
-                            for (const [key2, value2] of Object.entries(a)) {
-                                //var b = j + parseInt(oldZin);
-                                //document.write(b + " " + map.getPane(key2).style.zIndex + " " + key2 + " " + old);
-                                if ((j + parseInt(oldZin) == map.getPane(key2).style.zIndex) && (key2 != old)) {
-                                    map.getPane(key2).style.zIndex--;
-                                    old = key2;
-                                }
-                            }
-                        }
+            var from = evt.item;
+            var groupName = Object.keys(window[from.children[0].children[0].name]);
+            if (evt.newIndex < evt.oldIndex) {
+                for (let r = evt.newIndex; r < evt.oldIndex; r++) {
+                    map.getPane(groupName[r]).style.zIndex--;
+                }
+                map.getPane(groupName[evt.oldIndex]).style.zIndex = parseInt(map.getPane(groupName[evt.oldIndex]).style.zIndex) + (evt.oldIndex - evt.newIndex);
+    
+            }
+            else if (evt.newIndex > evt.oldIndex) {
+                for (let r = evt.newIndex; r > evt.oldIndex; r--) {
+                    map.getPane(groupName[r]).style.zIndex++;
+                }
+                map.getPane(groupName[evt.oldIndex]).style.zIndex = parseInt(map.getPane(groupName[evt.oldIndex]).style.zIndex) - (evt.newIndex - evt.oldIndex);
+            }
+            var temp = new Array, temp1 = new Array, temp2 = new Array;
+            for (let r = 0; r < groupName.length; r++) {
+                temp[r] = map.getPane(groupName[r]).style.zIndex;
+            }
+            bubbleSort(temp);
+            for (let r = 0; r < groupName.length; r++) {
+                for (const [key, value] of Object.entries(window[from.children[0].children[0].name])) {
+                    if (map.getPane(key).style.zIndex == temp[r]) {
+                        temp1[r] = key;
+                        temp2[r] = value;
+                        delete (window[from.children[0].children[0].name])[key];
                     }
                 }
             }
-        }});
-    wrapper.innerHTML = HTML1;
+            let lng = groupName.length;
+            for (let r = 0; r < lng; r++) {
+                (window[from.children[0].children[0].name])[temp1[r]] = temp2[r];
+            }
+            /*for (const [key, value] of Object.entries(window[from.children[0].children[0].name])) {
+                alert(key + " " + value + " " + map.getPane(key).style.zIndex);
+            }*/
+        } 
+    })
+    
     var groupSort = document.getElementById("pageSubmenu");
-    var sortable = Sortable.create(groupSort, {
-        group: "grname",
+    Sortable.create(groupSort, {
         animation: 150,
-        onEnd: function (evtg) {
-            evtg.newIndex;
+        onEnd: function (event) {
+            event.newIndex;
         }
-    });
+    })
 }
