@@ -169,12 +169,38 @@ for (let i = 0; i < groupval.length; i++) {
             }*/
         } 
     })
-    
-    var groupSort = document.getElementById("pageSubmenu");
-    Sortable.create(groupSort, {
-        animation: 150,
-        onEnd: function (event) {
-            event.newIndex;
-        }
-    })
 }
+
+var all = new Array;
+var groupSort = document.getElementById("pageSubmenu");
+Sortable.create(groupSort, {
+    animation: 150,
+    onEnd: function (event) {
+        var from1 = event.item;
+        var r = 0; j = 300, order = 0;
+        if (event.newIndex < event.oldIndex) order = 0;
+        else order = 1;
+            
+        for (let p = 1; p <= groupval.length; p++) {
+            if (p == event.newIndex + order) {
+                for (const key of Object.keys(window[from1.children[1].children[0].children[0].children[0].children[0].name])) {
+                    all[r] = key;
+                    r++;
+                }
+            }
+            if (p != event.oldIndex) {
+                for (const key of Object.keys(groupval[p-1])) {
+                    all[r] = key;
+                    r++;
+                }
+            }
+        }
+        for (let k = 0; k < all.length; k++) {
+            map.getPane(all[k]).style.zIndex = j;
+            j--;
+        }
+        /*for (let k = 0; k < all.length; k++) {
+            console.log(all[k] + " " + map.getPane(all[k]).style.zIndex + ". ");
+        }*/
+    }
+})
