@@ -164,9 +164,6 @@ for (let i = 0; i < groupval.length; i++) {
             for (let r = 0; r < lng; r++) {
                 (window[from.children[0].children[0].name])[temp1[r]] = temp2[r];
             }
-            /*for (const [key, value] of Object.entries(window[from.children[0].children[0].name])) {
-                alert(key + " " + value + " " + map.getPane(key).style.zIndex);
-            }*/
         } 
     })
 }
@@ -177,30 +174,37 @@ Sortable.create(groupSort, {
     animation: 150,
     onEnd: function (event) {
         var from1 = event.item;
-        var r = 0; j = 300, order = 0;
+        let newgroup = [];
+        var r = 0, rr = 0; j = 300, order = 0;
+
         if (event.newIndex < event.oldIndex) order = 0;
         else order = 1;
-            
-        for (let p = 1; p <= groupval.length; p++) {
+        for (let p = 1; p <= groupval.length + 1; p++) {
             if (p == event.newIndex + order) {
                 for (const key of Object.keys(window[from1.children[1].children[0].children[0].children[0].children[0].name])) {
                     all[r] = key;
                     r++;
+                    newgroup[rr] = from1.children[1].children[0].children[0].children[0].children[0].name;
                 }
+                rr++;
             }
-            if (p != event.oldIndex) {
+            if (p != event.oldIndex && p <= groupval.length) {
                 for (const key of Object.keys(groupval[p-1])) {
                     all[r] = key;
                     r++;
+                    newgroup[rr] = groupid[p-1];
                 }
+                rr++;
             }
         }
         for (let k = 0; k < all.length; k++) {
             map.getPane(all[k]).style.zIndex = j;
             j--;
         }
-        /*for (let k = 0; k < all.length; k++) {
-            console.log(all[k] + " " + map.getPane(all[k]).style.zIndex + ". ");
-        }*/
+
+        for (let p = 0; p < groupval.length; p++) {
+            groupval[p] = window[newgroup[p]];
+            groupid[p] = newgroup[p];
+        }
     }
 })
