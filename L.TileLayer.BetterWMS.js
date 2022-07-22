@@ -1,5 +1,5 @@
 L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
-  
+
   onAdd: function (map) {
     L.TileLayer.WMS.prototype.onAdd.call(this, map);
     map.on('click', this.getFeatureInfo, this);
@@ -54,11 +54,12 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
   
   showGetFeatureInfo: function (err, latlng, content) {
     if (err) { console.log(err); return; }
-    if (content.length != 658) {
-      L.popup({ maxWidth: 1500})
+    if (content.length != 658 && (typeof popup == "undefined" || !popup.isOpen()) && !rulerControl._choice) {
+      popup = L.popup({ maxWidth: 1500, pane: "750"})
       .setLatLng(latlng)
       .setContent(content)
       .openOn(this._map);
+      
     }
   }
 });

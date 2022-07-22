@@ -2,7 +2,7 @@
 
 map.attributionControl.setPosition("bottomleft");
 
-L.control.ruler().addTo(map);
+var rulerControl = L.control.ruler().addTo(map);
 L.Control.boxzoom({ position:'topright' }).addTo(map);
 L.control.coordinates({ position:"bottomright" }).addTo(map);
 
@@ -684,4 +684,3 @@ var layerGroup = L.layerGroup(multilayers);
 var opacitySliderGroup = new L.Control.opacitySliderGroup();
 map.addControl(opacitySliderGroup);
 opacitySliderGroup.setOpacityLayerGroup(layerGroup);
-
