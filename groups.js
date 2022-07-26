@@ -23,7 +23,7 @@ var environmental_protection = {
 
 var fishing = {
     "Anchoring": "Anchoring",
-    "Fartet_recovery_plan": "Fartet recovery plan",
+    "Fartet_recovery_plan": "Fartet (Aphanius iberus) recovery plan",
     "Fishing_company_zones": "Fishing company zones",
     "Sailing_speed": "Sailing speed"
 };
@@ -31,7 +31,7 @@ var fishing = {
 var hydrology = {
     "Flow_accumulation": "Flow accumulation",
     "Flow_direction": "Flow direction",
-    "Mar_Menor_catchment_area": "Mar Menor catchment area"
+    "Mar_Menor_catchment_area": "Catchment area"
 };
 
 var land_uses = {
@@ -59,8 +59,8 @@ var terrain = {
 };
 
 var water_quality = {
-    "Declaracion_Riesgo_Cuantitativo": "Declaracion Riesgo Cuantitativo",
-    "Declaracion_Riesgo_Quimico": "Declaracion Riesgo Quimico",
+    "Declaracion_Riesgo_Cuantitativo": "Quantitative Risk Declaration",
+    "Declaracion_Riesgo_Quimico": "Chemical Risk Declaration",
     "Declaration_of_at_risk_of_not_achieving_good_quantitative_or_chemical_status": "Declaration of at risk of not achieving good quantitative or chemical status",
     "National_census_dischrages": "National census dischrages",
     "Surface_water_quality": "Surface water quality",
@@ -104,17 +104,6 @@ for (let i = 0; i < allLayersString.length; i++) {
     map.getPane(allLayersString[i]).style.zIndex = j;
     j--;
 }
-
-function bubbleSort(arr){
-    for(let i = 0; i < arr.length; i++){
-        for(let j = 0; j < arr.length - i - 1; j++){
-            if(arr[j + 1] > arr[j]){
-                [arr[j + 1],arr[j]] = [arr[j],arr[j + 1]]
-            }
-        }
-    };
-    return arr;
-};
 
 var parents = new Array;
 for (let i = 0; i < groupval.length; i++) {

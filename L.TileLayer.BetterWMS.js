@@ -1,3 +1,16 @@
+function bubbleSort(arr){
+  for(let i = 0; i < arr.length; i++){
+      for(let j = 0; j < arr.length - i - 1; j++){
+          if(arr[j + 1] > arr[j]){
+              [arr[j + 1],arr[j]] = [arr[j],arr[j + 1]]
+          }
+      }
+  };
+  return arr;
+};
+
+var tem = [];
+
 L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
   onAdd: function (map) {
@@ -51,16 +64,21 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     
     return this._url + L.Util.getParamString(params, this._url, true);
   },
-  
+  //(typeof popup == "undefined" || !popup.isOpen()) && 
   showGetFeatureInfo: function (err, latlng, content) {
     if (err) { console.log(err); return; }
     if (content.length != 658 && (typeof popup == "undefined" || !popup.isOpen()) && !rulerControl._choice) {
-      popup = L.popup({ maxWidth: 1500, pane: "750"})
+      popup = L.popup({ maxWidth: 3500 })
       .setLatLng(latlng)
       .setContent(content)
       .openOn(this._map);
-      
     }
+
+    /*let popupPane = document.getElementsByClassName('leaflet-popup-pane')
+    let paneToChange = popupPane[0];
+    paneToChange.style.zIndex = 3000;
+    console.log(paneToChange.style.zIndex);*/
+    //console.log()
   }
 });
 
