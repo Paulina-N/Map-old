@@ -52,6 +52,21 @@ var allLayersString = new Array(
     "CHL"
 );
 
+var map = L.map('map', {
+    center: [37.75, -1],
+    zoom: 10,
+    minZoom: 2,
+    zoomControl: false,
+    layers: [Satellite]
+});
+
+var j = 300;
+for (let i = 0; i < allLayersString.length; i++) {
+    map.createPane(allLayersString[i]);
+    map.getPane(allLayersString[i]).style.zIndex = j;
+    j--;
+}
+
 var allLayers = new Array();
 for(let r = 0; r < allLayersString.length; r++) {
     if (allLayersString[r] == "Marine_habitats" || allLayersString[r] == "National_census_dischrages") {
@@ -59,8 +74,6 @@ for(let r = 0; r < allLayersString.length; r++) {
     }
     else allLayers[r] = allLayersString[r].replace(/_/g, " ");
 }
-
-
 
 for(var i = 0; i < allLayersString.length; i++) {
     if (allLayersString[i] == "CHL" || allLayersString[i] == "Corine_Land_Cover") link = marManorLink;

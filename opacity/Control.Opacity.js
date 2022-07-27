@@ -66,7 +66,7 @@ L.Control.opacitySlider = L.Control.extend({
           range: "min",
           min: 0,
           max: 100,
-          value: 60,
+          value: 100,
           step: 10,
           start: function ( event, ui) {
             //When moving the slider, disable panning.
@@ -100,7 +100,7 @@ L.Control.opacitySliderGroup = L.Control.extend({
         range: "min",
         min: 0,
         max: 100,
-        value: 60,
+        value: 100,
         step: 10,
         start: function ( event, ui) {
           //When moving the slider, disable panning.

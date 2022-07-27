@@ -9,8 +9,6 @@ function bubbleSort(arr){
   return arr;
 };
 
-var tem = [];
-
 L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
   onAdd: function (map) {

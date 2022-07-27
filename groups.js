@@ -91,20 +91,6 @@ var groupval = [
     water_quality
 ]
 
-var map = L.map('map', {
-    center: [37.75, -1],
-    zoom: 10,
-    minZoom: 2,
-    layers: [Satellite]
-});
-
-var j = 300;
-for (let i = 0; i < allLayersString.length; i++) {
-    map.createPane(allLayersString[i]);
-    map.getPane(allLayersString[i]).style.zIndex = j;
-    j--;
-}
-
 var parents = new Array;
 for (let i = 0; i < groupval.length; i++) {
     let wrapper = document.getElementById(groupid[i]);

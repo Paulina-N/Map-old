@@ -1,10 +1,62 @@
+//change the opacity of all active layers
+multilayers = [
+  Anchoring,
+  Bathymetry,
+  DEM,
+  Environmental_zoning_for_renewable_energy,
+  Declaracion_Riesgo_Cuantitativo,
+  Declaracion_Riesgo_Quimico,
+  Declaration_of_Urgent_Measures,
+  Declaration_of_at_risk_of_not_achieving_good_quantitative_or_chemical_status,
+  Fartet_recovery_plan,
+  Fishing_company_zones,
+  Flora_recovery_plan,
+  Flow_accumulation,
+  Flow_direction,
+  Irrigated_crops,
+  Macrophytes,
+  Mar_Menor_catchment_area,
+  Marine_habitats,
+  Municipalities,
+  National_census_dischrages,
+  Natura_2000_Network_LIC_ZEC,
+  Natura_2000_Network_ZEPA,
+  Natural_protected_areas,
+  RAMSAR,
+  Regions,
+  Relief,
+  SIAM_weather_stations,
+  SIOSE_Land_cover,
+  SIOSE_Land_uses,
+  Sailing_speed,
+  Selected_areas_for_the_implementation_of_thermo_solar_plants,
+  Soil_regional_layer,
+  Surface_water_quality,
+  Temporary_exclusion_area,
+  Terrestrial_habitats,
+  ZEPIM,
+  Zone_0,
+  Zone_A1,
+  Zone_A2,
+  Zone_B,
+  Zones,
+  CHL,
+  Corine_Land_Cover
+]
+
+var layerGroup = L.layerGroup(multilayers);
+var opacitySliderGroup = new L.Control.opacitySliderGroup();
+map.addControl(opacitySliderGroup);
+opacitySliderGroup.setOpacityLayerGroup(layerGroup);
 
 
 map.attributionControl.setPosition("bottomleft");
 
+L.control.zoom({ position: 'topright' }).addTo(map);
 var rulerControl = L.control.ruler().addTo(map);
 L.Control.boxzoom({ position:'topright' }).addTo(map);
 L.control.coordinates({ position:"bottomright" }).addTo(map);
+new L.HistoryControl({}).addTo(map);
 
 var baseMaps = {
     "Open Street Map": OpenStreetMap,
@@ -633,54 +685,3 @@ $('#CHL').click(function(){
   }
 });
 
-
-//change the opacity of all active layers
-multilayers = [
-  Anchoring,
-  Bathymetry,
-  DEM,
-  Declaracion_Riesgo_Cuantitativo,
-  Declaracion_Riesgo_Quimico,
-  Declaration_of_Urgent_Measures,
-  Declaration_of_at_risk_of_not_achieving_good_quantitative_or_chemical_status,
-  Environmental_zoning_for_renewable_energy,
-  Fartet_recovery_plan,
-  Fishing_company_zones,
-  Flora_recovery_plan,
-  Flow_accumulation,
-  Flow_direction,
-  Irrigated_crops,
-  Macrophytes,
-  Mar_Menor_catchment_area,
-  Marine_habitats,
-  Municipalities,
-  National_census_dischrages,
-  Natura_2000_Network_LIC_ZEC,
-  Natura_2000_Network_ZEPA,
-  Natural_protected_areas,
-  RAMSAR,
-  Regions,
-  Relief,
-  SIAM_weather_stations,
-  SIOSE_Land_cover,
-  SIOSE_Land_uses,
-  Sailing_speed,
-  Selected_areas_for_the_implementation_of_thermo_solar_plants,
-  Soil_regional_layer,
-  Surface_water_quality,
-  Temporary_exclusion_area,
-  Terrestrial_habitats,
-  ZEPIM,
-  Zone_0,
-  Zone_A1,
-  Zone_A2,
-  Zone_B,
-  Zones,
-  CHL,
-  Corine_Land_Cover
-]
-
-var layerGroup = L.layerGroup(multilayers);
-var opacitySliderGroup = new L.Control.opacitySliderGroup();
-map.addControl(opacitySliderGroup);
-opacitySliderGroup.setOpacityLayerGroup(layerGroup);

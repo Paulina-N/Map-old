@@ -13,7 +13,7 @@
 }
 
 .with-background-image {
-    background-image:url(leaflet-control-boxzoom.svg);
+    background-image:url(square-zoom.png);
     background-repeat:no-repeat;
     background-size:28px 28px; /* 25px image, 25px box; subtract 2px for padding on every side = 21px rendering height */
     background-position:2px 2px;
