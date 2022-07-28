@@ -241,14 +241,3 @@ a.download {
 .leaflet-top .leaflet-control {
     clear: inherit;
 }
-
-.instr {
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-
-.instr-list {
-    border-bottom: dashed;
-    border-bottom-width: thin;
-    border-block-color: #a7b5eb;
-}

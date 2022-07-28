@@ -62,21 +62,15 @@ L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
     
     return this._url + L.Util.getParamString(params, this._url, true);
   },
-  //(typeof popup == "undefined" || !popup.isOpen()) && 
+  
   showGetFeatureInfo: function (err, latlng, content) {
     if (err) { console.log(err); return; }
-    if (content.length != 658 && (typeof popup == "undefined" || !popup.isOpen()) && !rulerControl._choice) {
+    if (content.length != 658 && (typeof popup == "undefined" || !popup.isOpen()) && !rulerControl._choice && drawControl._toolbars.draw._activeMode == null) {
       popup = L.popup({ maxWidth: 3500 })
       .setLatLng(latlng)
       .setContent(content)
       .openOn(this._map);
     }
-
-    /*let popupPane = document.getElementsByClassName('leaflet-popup-pane')
-    let paneToChange = popupPane[0];
-    paneToChange.style.zIndex = 3000;
-    console.log(paneToChange.style.zIndex);*/
-    //console.log()
   }
 });
 

@@ -1,3 +1,4 @@
+// Puts links of the layer legends in an array, not dynamic
 var legendBase = "https://carto.vielca.com/geoserver/Smartlagoon/ows?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=";
 var legendBaseAmanda = "https://carto.vielca.com/geoserver/amanda/ows?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=";
 var legendBaseMarMenor = "https://carto.vielca.com/geoserver/mar_menor/ows?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=";

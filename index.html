@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <title>Smartlagoon - Vielca Ingenieros</title>
-        <link rel="icon" type="image/x-icon" href="favicon-nobg.png">
+        <link rel="icon" type="image/x-icon" href="images/favicon-nobg.png">
         <!-- Leaflet -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -25,8 +25,10 @@
         <link rel="stylesheet" href="opacity/Control.Opacity.css" />
         <!-- Show coordinates -->
         <link rel="stylesheet" href="show_coordinates/Leaflet.Coordinates-0.1.5.css" />
+        <!-- Draw on map -->
+        <link href='draw/leaflet.draw-src.css' rel='stylesheet' crossorigin=''/>
         <!-- Zoom history -->
-        <link rel="stylesheet" type="text/css" href="bower_components/leaflet-history/dist/leaflet-history.css">
+        <link rel="stylesheet" type="text/css" href="history/leaflet-history.css">
     </head>
     <body>
 
@@ -40,6 +42,8 @@
                 <div class="sidebar-header">
                     <h3>Smartlagoon</h3>
                 </div>
+
+                <!-- Layers menu -->
                 <ul class="list-unstyled components">
                     <li>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Layers</a>
@@ -107,24 +111,66 @@
                     </li>
                 </ul>
 
+                <!-- Instructions menu-->
                 <ul class="list-unstyled components">
                     <li>
                         <a href="#instructionSubmenu" data-toggle="collapse" aria-expanded="false">Instructions</a>
                         <ul class="collapse list-unstyled" id="instructionSubmenu">
-                            <li style="margin-top: 5px;">
-                                <ul class="instr-list"><img src="images/history.PNG" class="instr" style="width: 40px; height: 27.625px; border-radius: 4px;"><br><label>Zooming history: move back and forward</label><br></ul>
-                                <ul class="instr-list"><img src="images/squarezoom.PNG" class="instr" style="width: 40px; height: 40px; border-radius: 4px;"><br><label>Square zooming</label><br></ul>
-                                <ul class="instr-list"><img src="images/ruler.PNG" class="instr" style="width: 40px; height: 40px; border-radius: 4px;"><br><label>Ruler for distancwe and bearing measuring. Press ESC or double-click to stop using the ruler, press ESC again to clean the map</label><br></ul>
-                                <ul class="instr-list"><img src="images/opacity.PNG" class="instr" style="width: 100px; height: 20px; border-radius: 4px;"><br><label>Change the transparency of all active layers</label><br></ul>
-                                <ul class="instr-list"><img src="images/coordinates.PNG" class="instr" style="width: 200px; height: 17px; border-radius: 4px;"><br><label>Hover the mouse on the map to see live coordinates or click on the icon to put your own ones to see where they lead</label><br></ul>
-                                <ul class="instr-list"><h4 class="instr">Print the map:</h4><label>Use the shortcut CTRL+P to print the map</label><br></ul>
-                                <ul class="instr-list"><h4 class="instr">Sort layers:</h4><label>Sort the layers or groups of the layers by pressing, holding and moving them up or down in the list of layers. Layers on top of the list show up on top of the map</label><br></ul>
-                                <ul class="instr-list"><h4 class="instr">Data:</h4><label>Click on any layer on the map to see the popup with all the information about each layer</label><br></ul>
+                            <li>
+                                <li>
+                                    <a href="#history" data-toggle="collapse" aria-expanded="false"><img src="images/history.PNG" style="width: 30px; height: 20px; border-radius: 4px;"> Zooming history</a>
+                                    <ul class="collapse list-unstyled" id="history">
+                                        <ul><label>Click back and forward buttons to go to previous or next extent</label></ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#squarezoom" data-toggle="collapse" aria-expanded="false"><img src="images/squarezoom.PNG" style="width: 30px; height: 30px; border-radius: 4px;"> Square zooming</a>
+                                    <ul class="collapse list-unstyled" id="squarezoom">
+                                        <ul><label>Draw a square on the map to zoom in to an area. One-time zoom per icon click</label></ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#ruler" data-toggle="collapse" aria-expanded="false"><img src="images/ruler.PNG" style="width: 30px; height: 30px; border-radius: 4px;"> Ruler</a>
+                                    <ul class="collapse list-unstyled" id="ruler">
+                                        <ul><label>Ruler for the distance and bearing measuring. Press ESC or double-click to stop using the ruler, and press ESC again to clean the map</label></ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#opacity" data-toggle="collapse" aria-expanded="false"><img src="images/opacity.PNG" style="width: 100px; height: 20px; border-radius: 4px;"> Opacity</a>
+                                    <ul class="collapse list-unstyled" id="opacity">
+                                        <ul><label>Change the transparency of all active layers by sliding through the slider</label></ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#coordinates" data-toggle="collapse" aria-expanded="false"><img src="images/coordinates.PNG" style="width: 200px; height: 17px; border-radius: 4px;"></a>
+                                    <ul class="collapse list-unstyled" id="coordinates">
+                                        <ul><label>Hover the mouse on the map to see live longitude and latitude, or click on the icon to put your ones to put a marker on the map</label></ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#print" data-toggle="collapse" aria-expanded="false"> Print the map</a>
+                                    <ul class="collapse list-unstyled" id="print">
+                                        <ul><label>Use the shortcut CTRL+P to print the map</label></ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#sort" data-toggle="collapse" aria-expanded="false"> Sort layers</a>
+                                    <ul class="collapse list-unstyled" id="sort">
+                                        <ul><label>Sort the layers or the groups of the layers by pressing, holding and moving them up or down in the list of layers. Layers on top of the list show up on top of other layers on the map</label></ul>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#data" data-toggle="collapse" aria-expanded="false"> See data</a>
+                                    <ul class="collapse list-unstyled" id="data">
+                                        <ul><label>Click on any layer on the map to see the popup with all the information about each layer.</label></ul>
+                                    </ul>
+                                </li>
                             </li>
                         </ul>
                     </li>
                 </ul>
                 
+                <!-- Links -->
                 <ul class="list-unstyled CTAs">
                     <li><a href="http://www.vielca.com/web/" class="download" target="blank">vielca.com</a></li>
                 </ul>
@@ -133,24 +179,16 @@
 
             <!-- Page Content Holder -->
             <div id="content">
-
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
-
                         <div class="navbar-header">
                             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span>Open Sidebar</span>
                             </button>
-                            <img src="VIELCA-ingenieros-5cm.jpg" alt="VIELCA Ingenieros" style="height: 30px; width: 80px; margin-left: 15px;">
-                            <img src="smartlagoon.png" alt="Smartlagoon" style="height: 37px; width: 100px; margin-left: 15px;">
+                            <img src="images/VIELCA-ingenieros-5cm.jpg" alt="VIELCA Ingenieros" style="height: 30px; width: 80px; margin-left: 15px;">
+                            <img src="images/smartlagoon.png" alt="Smartlagoon" style="height: 37px; width: 100px; margin-left: 15px;">
                         </div>
-
-                        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="aboutUs.html">About Us</a></li>
-                            </ul>
-                        </div>-->
                     </div>
                 </nav>
                 <div id="map"></div>
@@ -180,9 +218,11 @@ crossorigin="anonymous"></script>
 <!-- ZoomBox -->
 <script src="boxzoom/leaflet-control-boxzoom.js"></script>
 <!-- Zoom history -->
-<script type="text/javascript" src="bower_components/leaflet-history/dist/leaflet-history.js"></script>
+<script type="text/javascript" src="history/leaflet-history.js"></script>
 <!-- Show coordinates -->
 <script src="show_coordinates/Leaflet.Coordinates-0.1.5.min.js"></script>
+<!-- Draw on map -->
+<script src='draw/leaflet.draw-src.js' crossorigin=""></script>
 <!-- Custom Js -->
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script type="text/javascript" src="L.TileLayer.BetterWMS.js"></script>

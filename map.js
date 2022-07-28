@@ -1,4 +1,4 @@
-//change the opacity of all active layers
+// Change the opacity of all active layers
 multilayers = [
   Anchoring,
   Bathymetry,
@@ -49,7 +49,7 @@ var opacitySliderGroup = new L.Control.opacitySliderGroup();
 map.addControl(opacitySliderGroup);
 opacitySliderGroup.setOpacityLayerGroup(layerGroup);
 
-
+// Add functionality plugins to the map
 map.attributionControl.setPosition("bottomleft");
 
 L.control.zoom({ position: 'topright' }).addTo(map);
@@ -64,7 +64,7 @@ var baseMaps = {
     "Satellite": Satellite
 };
 
-//custom layer control
+// Custom layer control
 $('#street').click(function(){
   if ($('#street').is(':checked')){
     map.addLayer(OpenStreetMap);

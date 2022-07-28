@@ -1,12 +1,14 @@
-//Base maps
+// Base maps
 var OpenStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {});
 var Esri_WorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {});
 var Satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {});
 
+// Base links of the layers
 var smartlagoonLink = 'https://carto.vielca.com/geoserver/Smartlagoon/wms?';
 var marManorLink = 'https://carto.vielca.com/geoserver/mar_menor/wms?';
 var link = smartlagoonLink;
 
+// Create layers
 var allLayersString = new Array(
     "SIAM_weather_stations",
     "Environmental_zoning_for_renewable_energy",
@@ -52,13 +54,38 @@ var allLayersString = new Array(
     "CHL"
 );
 
-var map = L.map('map', {
+
+var map = L.map('map', { 
     center: [37.75, -1],
     zoom: 10,
     minZoom: 2,
     zoomControl: false,
     layers: [Satellite]
 });
+
+editableLayers = new L.FeatureGroup();
+map.addLayer(editableLayers);
+
+let options = {
+    position: 'topleft',
+    draw: {
+    circle: true, 
+    rectangle: true,
+    marker: true
+    },
+    edit: {
+    featureGroup: editableLayers, //REQUIRED!! 
+    remove: true
+    }
+};
+let drawControl = new L.Control.Draw(options);
+map.addControl(drawControl);
+
+//register events
+map.on(L.Draw.Event.CREATED, function(e){
+    editableLayers.addLayer(e.layer);
+});
+
 
 var j = 300;
 for (let i = 0; i < allLayersString.length; i++) {

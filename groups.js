@@ -1,3 +1,4 @@
+// Layer groups
 var climate = {
     "SIAM_weather_stations": "SIAM weather stations"
 };
@@ -91,6 +92,7 @@ var groupval = [
     water_quality
 ]
 
+// Make layers sortable by the user
 var parents = new Array;
 for (let i = 0; i < groupval.length; i++) {
     let wrapper = document.getElementById(groupid[i]);
@@ -143,6 +145,7 @@ for (let i = 0; i < groupval.length; i++) {
     })
 }
 
+//Make groups of the sortable by the user
 var all = new Array;
 var groupSort = document.getElementById("pageSubmenu");
 Sortable.create(groupSort, {
