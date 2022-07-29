@@ -69,13 +69,13 @@ map.addLayer(editableLayers);
 let options = {
     position: 'topleft',
     draw: {
-    circle: true, 
-    rectangle: true,
-    marker: true
+        circle: true, 
+        rectangle: true,
+        marker: true
     },
     edit: {
-    featureGroup: editableLayers, //REQUIRED!! 
-    remove: true
+        featureGroup: editableLayers, //REQUIRED!! 
+        remove: true
     }
 };
 let drawControl = new L.Control.Draw(options);
@@ -85,7 +85,6 @@ map.addControl(drawControl);
 map.on(L.Draw.Event.CREATED, function(e){
     editableLayers.addLayer(e.layer);
 });
-
 
 var j = 300;
 for (let i = 0; i < allLayersString.length; i++) {
