@@ -4,10 +4,8 @@ html
 }
 
 #map {
-    position: fixed;
-    width: 97vw;
-    /*height: 780px;*/
-    height: 85%;
+    position: relative;
+    height: 90%;
     z-index: 1;
 }
 
@@ -231,13 +229,26 @@ a.download {
 }
 
 #copywrite {
-    position: fixed;
-    bottom: 0;
+    position: relative;
     color: rgb(0, 0, 0);
-    font-size: 0.8em;
-    padding-left: 25%;
+    font-size: 0.8vw;
+    padding-top: 8px;
+    text-align: center;
 }
 
 .leaflet-top .leaflet-control {
     clear: inherit;
+}
+
+.leaflet-control-attribution.leaflet-control {
+    position: absolute;
+}
+
+@media (max-width: 410px) {
+    #sidebar-button {
+        display: none;
+    }
+    .leaflet-control-boxzoom {
+        display: none;
+    }
 }
